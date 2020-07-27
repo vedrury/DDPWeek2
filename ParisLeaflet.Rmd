@@ -1,5 +1,5 @@
 ---
-title: "LeafLet Map Project"
+title: "Leaflet Map Project"
 author: "Vanessa Drury"
 date: "7/27/2020"
 output: html_document
