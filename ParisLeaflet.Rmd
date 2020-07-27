@@ -1,0 +1,32 @@
+---
+title: "LeafLet Map Project"
+author: "Vanessa Drury"
+date: "7/27/2020"
+output: html_document
+---
+
+## Paris Museums
+```{r, echo=F}
+library(leaflet)
+
+monalisa<-makeIcon(iconUrl = "https://news.artnet.com/app/news-upload/2018/04/gioconda_mona-lisa-677x1024.jpg", iconWidth=31*215/125)
+
+starry<-makeIcon(iconUrl = "https://blog.parispass.com/wp-content/uploads/2017/05/van-gogh-starry-night-orsay.jpg", iconWidth=31*215/75)
+
+monet<-makeIcon(iconUrl = "https://www.muralsyourway.com/media/catalog/product/cache/1/base/1200x/040ec09b1e35df139433887a97daa66f/m/o/monet-water-lilies-1916-19-mural-wallpaper.jpg", iconWidth=30*215/75)
+
+picasso<-makeIcon(iconUrl = "https://www.parisdigest.com/photos/picasso_museum_dora_maar.jpg", iconWidth=31*215/100)
+
+
+paris<-data.frame(name=c("Musée du Louvre","Musée d'Orsay","Musée de l'Orangerie","Musée National Picasso"), lat=c(48.8606,48.8600,48.8638,48.8599), lng=c(2.3376,2.3266,2.3227,2.3623))
+
+parismap<-leaflet()%>%
+        addTiles()%>%
+        addMarkers(lat=paris$lat[1],lng=paris$lng[1], popup=paris$name[1], icon=monalisa)%>%
+        addMarkers(lat=paris$lat[2],lng=paris$lng[2], popup=paris$name[2], icon=starry)%>%
+        addMarkers(lat=paris$lat[3],lng=paris$lng[3], popup=paris$name[3], icon=monet)%>%
+        addMarkers(lat=paris$lat[4],lng=paris$lng[4], popup=paris$name[4], icon=picasso)
+
+
+parismap
+```
